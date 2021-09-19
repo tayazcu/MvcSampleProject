@@ -1,0 +1,35 @@
+﻿@model  AlphaProject.Models.AccountModel
+@{
+    ViewBag.Title = "ورود به پنل";
+}
+
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ورود به پنل مدیریت</title>
+</head>
+<body class="bg-white" style="margin:0 auto">
+    @using (Html.BeginForm("Login", "Panel", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="ErrorMsg" id="hdfMsg" value="@ViewBag.ErrorMSG" />
+        <input type="hidden" name="ErrorType" id="hdfType" value="@ViewBag.ErrorType" />
+        <h3>ورود به پنل مدیریت</h3>
+        <div>
+            <div class="group material-input">
+                @Html.TextBoxFor(x => x.Username)
+                <label>نام کاربری</label>
+            </div>
+            <div class="group material-input">
+                @Html.PasswordFor(x => x.Password)
+                <label>رمز عبور</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-lg btn-gradient-01">
+            ورود
+        </button>
+    }
+</body>
+</html>
+
